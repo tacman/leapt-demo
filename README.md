@@ -13,4 +13,4 @@ symfony console d:s:u --force
 symfony serve -d
 ```
 
-Then configure Flysystem in `config/services.yaml` and `config/packages/flysystem.yaml` and head to the URL provided by Symfony CLI.
+Then configure AWS config in your .env.local file (based on .env file) and head to the URL provided by Symfony CLI.

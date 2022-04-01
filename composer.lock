@@ -2444,12 +2444,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/leapt/core-bundle.git",
-                "reference": "5593121e65f35365a4933194d9d41b522496872c"
+                "reference": "107a6b357bfcef78e2aa860de333bf06fd73afdd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leapt/core-bundle/zipball/5593121e65f35365a4933194d9d41b522496872c",
-                "reference": "5593121e65f35365a4933194d9d41b522496872c",
+                "url": "https://api.github.com/repos/leapt/core-bundle/zipball/107a6b357bfcef78e2aa860de333bf06fd73afdd",
+                "reference": "107a6b357bfcef78e2aa860de333bf06fd73afdd",
                 "shasum": ""
             },
             "require": {
@@ -2514,7 +2514,7 @@
                 "issues": "https://github.com/leapt/core-bundle/issues",
                 "source": "https://github.com/leapt/core-bundle/tree/flysystem-setup"
             },
-            "time": "2022-04-01T06:18:48+00:00"
+            "time": "2022-04-01T08:00:34+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",

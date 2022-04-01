@@ -27,8 +27,16 @@ services:
         class: Aws\S3\S3Client
         arguments:
             -
-                region: eu-west-3
+                region: "%env(AWS_REGION)%"
                 version: latest
+                credentials:
+                    key: "%env(AWS_KEY)%"
+                    secret: "%env(AWS_SECRET)%"
 
     aws_sync_client_service:
         class: AsyncAws\S3\S3Client
+        arguments:
+            -
+                accessKeyId: "%env(AWS_KEY)%"
+                accessKeySecret: "%env(AWS_SECRET)%"
+                region: "%env(AWS_REGION)%"
