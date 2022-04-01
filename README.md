@@ -6,6 +6,7 @@ Simple Symfony project setup to test leapt/core-bundle.
 Currently configured:
 
 * File uploads
+* Paginator
 
 Set up:
 
