@@ -4,8 +4,8 @@
     {{- form_widget(form.file) -}}
     {{ form_errors(form.file) }}
 
-    {% if file_url is not null %}
-        <a href="{{ asset(file_url) }}" target="_blank" rel="noopener">
+    {% if allow_download and file_url is not null %}
+        <a href="{{ download_use_asset_function ? asset(file_url) : file_url }}" target="_blank" rel="noopener">
             {{ download_label is not null ? download_label|trans({}, translation_domain) : 'form.types.file.download.label'|trans({}, 'LeaptCoreBundle') }}
         </a>
         <br />
