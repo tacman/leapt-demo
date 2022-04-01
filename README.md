@@ -8,14 +8,20 @@ Currently configured:
 * File uploads
 * Paginator
 
-Set up:
+Set up (using [Symfony CLI](https://symfony.com/download) & [Task](https://taskfile.dev/)):
 
 ```bash
 git clone https://github.com/jmsche/leapt-core-demo.git
 cd leapt-core-demo
-composer i
-symfony console d:s:u --force
-symfony serve -d
+task composer
+task fixtures
+task start
+```
+
+To stop the Symfony server:
+
+```bash
+task stop
 ```
 
 Then configure AWS config in your `.env.local` file (based on `.env` file) and head to the URL provided by Symfony CLI.
