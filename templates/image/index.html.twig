@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Gallery list</h1>
+
+    {% if galleries|length > 0 %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Local image</th>
+                    <th>S3 image</th>
+                    <th>S3 async image</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for gallery in galleries %}
+                    <tr>
+                        <td>{{ gallery.title }}</td>
+                        <td>{{ gallery.localImage|default('N/A') }}</td>
+                        <td>{{ gallery.s3Image|default('N/A') }}</td>
+                        <td>{{ gallery.s3AsyncImage|default('N/A') }}</td>
+                        <td><a href="{{ path('app_image_delete', { 'id': gallery.id }) }}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>There are currently no galleries in the database.</p>
+    {% endif %}
+
+    <hr>
+
+    <p><a href="{{ path('app_image_create') }}">Create a gallery</a></p>
+{% endblock body %}

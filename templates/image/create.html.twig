@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Add a gallery</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.localImageFile) }}
+        {{ form_row(form.s3ImageFile) }}
+        {{ form_row(form.s3AsyncImageFile) }}
+
+        <p><button type="submit">Create gallery</button></p>
+    {{ form_end(form) }}
+{% endblock body %}
