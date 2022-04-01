@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>Paginator</h1>
+
+    <p>With 5 items per page.</p>
+
+    <ul>
+        {% for language in paginator %}
+            <li>{{ language }}</li>
+        {% endfor %}
+    </ul>
+
+    <p>Pagination:</p>
+
+    {{ paginator_widget(paginator) }}
+
+{% endblock body %}
+
+{% block footer %}
+    <hr>
+
+    Style:
+    {% set links = { 'Default': 'index', 'Bootstrap 3': 'bootstrap_3', 'Bootstrap 4': 'bootstrap_4', 'Bootstrap 5': 'bootstrap_5' } %}
+    {% for label, link in links %}
+        {% if is_active_path(path("app_paginator_#{link}")) %}<strong>{% endif %}
+        <a href="{{ path("app_paginator_#{link}") }}">{{ label }}</a>
+        {% if is_active_path(path("app_paginator_#{link}")) %}</strong>{% endif %}
+        {% if not loop.last %} - {% endif %}
+    {% endfor %}
+
+    {{ parent() }}
+{% endblock footer %}

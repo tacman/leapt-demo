@@ -1,17 +1,2 @@
-{% extends 'layout.html.twig' %}
-
-{% block body %}
-    <h1>Paginator</h1>
-
-    <p>With 5 items per page.</p>
-
-    <ul>
-        {% for language in paginator %}
-            <li>{{ language }}</li>
-        {% endfor %}
-    </ul>
-
-    <p>Pagination :</p>
-    {{ paginator_widget(paginator) }}
-
-{% endblock body %}
+{% extends 'paginator/layout.html.twig' %}
+{% do add_active_path(path('app_paginator_index')) %}
