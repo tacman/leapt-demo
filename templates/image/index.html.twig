@@ -21,7 +21,10 @@
                         <td>{{ gallery.localImage|default('N/A') }}</td>
                         <td>{{ gallery.s3Image|default('N/A') }}</td>
                         <td>{{ gallery.s3AsyncImage|default('N/A') }}</td>
-                        <td><a href="{{ path('app_image_delete', { 'id': gallery.id }) }}">Delete</a></td>
+                        <td>
+                            <a href="{{ path('app_image_update', { 'id': gallery.id }) }}">Update</a>
+                            <a href="{{ path('app_image_delete', { 'id': gallery.id }) }}">Delete</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

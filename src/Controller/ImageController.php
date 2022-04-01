@@ -20,7 +20,7 @@ final class ImageController extends AbstractController
     ) {
     }
 
-    #[Route('', name: 'index')]
+    #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response
     {
         return $this->render('image/index.html.twig', [
@@ -28,7 +28,7 @@ final class ImageController extends AbstractController
         ]);
     }
 
-    #[Route('/create', name: 'create')]
+    #[Route('/create', name: 'create', methods: ['GET', 'POST'])]
     public function create(Request $request): Response
     {
         $gallery = new Gallery();
@@ -49,7 +49,27 @@ final class ImageController extends AbstractController
         ]);
     }
 
-    #[Route('/delete/{id}', name: 'delete')]
+    #[Route('/update/{id}', name: 'update', methods: ['GET', 'POST'])]
+    public function update(Request $request, Gallery $gallery): Response
+    {
+        $form = $this->createForm(GalleryType::class, $gallery, [
+            'method' => 'POST',
+            'action' => $this->generateUrl('app_image_update', ['id' => $gallery->getId()]),
+        ]);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->galleryRepository->save($gallery);
+
+            return $this->redirectToRoute('app_image_index');
+        }
+
+        return $this->renderForm('image/update.html.twig', [
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/delete/{id}', name: 'delete', methods: ['GET'])]
     public function delete(Gallery $gallery): Response
     {
         $this->galleryRepository->delete($gallery);
