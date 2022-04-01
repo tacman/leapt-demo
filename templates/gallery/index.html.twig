@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block body %}
     <h1>Gallery list</h1>
@@ -22,8 +22,8 @@
                         <td>{{ gallery.s3Image|default('N/A') }}</td>
                         <td>{{ gallery.s3AsyncImage|default('N/A') }}</td>
                         <td>
-                            <a href="{{ path('app_image_update', { 'id': gallery.id }) }}">Update</a>
-                            <a href="{{ path('app_image_delete', { 'id': gallery.id }) }}">Delete</a>
+                            <a href="{{ path('app_gallery_update', { 'id': gallery.id }) }}">Update</a>
+                            <a href="{{ path('app_gallery_delete', { 'id': gallery.id }) }}">Delete</a>
                         </td>
                     </tr>
                 {% endfor %}
@@ -33,7 +33,5 @@
         <p>There are currently no galleries in the database.</p>
     {% endif %}
 
-    <hr>
-
-    <p><a href="{{ path('app_image_create') }}">Create a gallery</a></p>
+    <p><a href="{{ path('app_gallery_create') }}">Create a gallery</a></p>
 {% endblock body %}

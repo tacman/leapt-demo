@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -15,5 +15,14 @@
     </head>
     <body>
         {% block body %}{% endblock %}
+
+        {% block footer %}
+            <hr>
+            <footer>
+                <a href="{{ path('app_default_index') }}">Homepage</a>
+                -
+                <a href="{{ path('app_gallery_index') }}">File uploads</a>
+            </footer>
+        {% endblock footer %}
     </body>
 </html>

@@ -12,8 +12,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route(name: 'app_image_')]
-final class ImageController extends AbstractController
+#[Route('/gallery', name: 'app_gallery_')]
+final class GalleryController extends AbstractController
 {
     public function __construct(
         private GalleryRepository $galleryRepository,
@@ -23,7 +23,7 @@ final class ImageController extends AbstractController
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response
     {
-        return $this->render('image/index.html.twig', [
+        return $this->render('gallery/index.html.twig', [
             'galleries' => $this->galleryRepository->findAll(),
         ]);
     }
@@ -34,17 +34,17 @@ final class ImageController extends AbstractController
         $gallery = new Gallery();
         $form = $this->createForm(GalleryType::class, $gallery, [
             'method' => 'POST',
-            'action' => $this->generateUrl('app_image_create'),
+            'action' => $this->generateUrl('app_gallery_create'),
         ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->galleryRepository->save($gallery);
 
-            return $this->redirectToRoute('app_image_index');
+            return $this->redirectToRoute('app_gallery_index');
         }
 
-        return $this->renderForm('image/create.html.twig', [
+        return $this->renderForm('gallery/create.html.twig', [
             'form' => $form,
         ]);
     }
@@ -54,17 +54,17 @@ final class ImageController extends AbstractController
     {
         $form = $this->createForm(GalleryType::class, $gallery, [
             'method' => 'POST',
-            'action' => $this->generateUrl('app_image_update', ['id' => $gallery->getId()]),
+            'action' => $this->generateUrl('app_gallery_update', ['id' => $gallery->getId()]),
         ]);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->galleryRepository->save($gallery);
 
-            return $this->redirectToRoute('app_image_index');
+            return $this->redirectToRoute('app_gallery_index');
         }
 
-        return $this->renderForm('image/update.html.twig', [
+        return $this->renderForm('gallery/update.html.twig', [
             'form' => $form,
         ]);
     }
@@ -74,6 +74,6 @@ final class ImageController extends AbstractController
     {
         $this->galleryRepository->delete($gallery);
 
-        return $this->redirectToRoute('app_image_index');
+        return $this->redirectToRoute('app_gallery_index');
     }
 }

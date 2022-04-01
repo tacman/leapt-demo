@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d6d949bee97a9e98fcd886f6e9178a5e",
+    "content-hash": "5325a1b000ad3243b5005cb9efe70da7",
     "packages": [
         {
             "name": "async-aws/core",
@@ -2440,17 +2440,11 @@
         },
         {
             "name": "leapt/core-bundle",
-            "version": "dev-flysystem-setup",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/leapt/core-bundle.git",
-                "reference": "107a6b357bfcef78e2aa860de333bf06fd73afdd"
-            },
+            "version": "dev-paginator-bootstrap-5",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/leapt/core-bundle/zipball/107a6b357bfcef78e2aa860de333bf06fd73afdd",
-                "reference": "107a6b357bfcef78e2aa860de333bf06fd73afdd",
-                "shasum": ""
+                "type": "path",
+                "url": "/home/jmsche/Sites/vendors/leapt/core-bundle",
+                "reference": "9214f2484460d8facd29a6a407d6d6cdc2806384"
             },
             "require": {
                 "doctrine/orm": "^2.10",
@@ -2483,7 +2477,27 @@
                     "Leapt\\CoreBundle\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Leapt\\CoreBundle\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "ci": [
+                    "@cs:dry",
+                    "@phpstan",
+                    "vendor/bin/phpunit"
+                ],
+                "cs:dry": [
+                    "php-cs-fixer fix --diff --dry-run --no-interaction --ansi"
+                ],
+                "cs:fix": [
+                    "php-cs-fixer fix --ansi"
+                ],
+                "phpstan": [
+                    "vendor/bin/phpstan analyse --ansi"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -2508,13 +2522,11 @@
             "description": "Symfony LeaptCoreBundle",
             "homepage": "https://github.com/leapt/core-bundle",
             "keywords": [
-                "utility"
+                "Utility"
             ],
-            "support": {
-                "issues": "https://github.com/leapt/core-bundle/issues",
-                "source": "https://github.com/leapt/core-bundle/tree/flysystem-setup"
-            },
-            "time": "2022-04-01T08:00:34+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "mtdowling/jmespath.php",
