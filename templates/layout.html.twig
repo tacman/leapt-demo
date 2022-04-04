@@ -14,17 +14,19 @@
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container">
+            {% block body %}{% endblock %}
 
-        {% block footer %}
-            <hr>
-            <footer>
-                <a href="{{ path('app_default_index') }}">Homepage</a>
-                -
-                <a href="{{ path('app_gallery_index') }}">File uploads</a>
-                -
-                <a href="{{ path('app_paginator_index') }}">Paginator</a>
-            </footer>
-        {% endblock footer %}
+            {% block footer %}
+                <hr>
+                <footer>
+                    <a href="{{ path('app_default_index') }}">Homepage</a>
+                    -
+                    <a href="{{ path('app_gallery_index') }}">File uploads</a>
+                    -
+                    <a href="{{ path('app_paginator_index') }}">Paginator</a>
+                </footer>
+            {% endblock footer %}
+        </div>
     </body>
 </html>
