@@ -34,10 +34,6 @@ final class MediaType extends AbstractType
                 'provider' => 'youtube',
                 'required' => false,
             ])
-            ->add('tudou', VideoType::class, [
-                'provider' => 'tudou',
-                'required' => false,
-            ])
             ->add('vimeo', VideoType::class, [
                 'provider' => 'vimeo',
                 'required' => false,

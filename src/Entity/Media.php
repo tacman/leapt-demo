@@ -36,9 +36,6 @@ class Media
     private ?string $youtube = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
-    private ?string $tudou = null;
-
-    #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $vimeo = null;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
@@ -107,16 +104,6 @@ class Media
     public function setYoutube(?string $youtube): void
     {
         $this->youtube = $youtube;
-    }
-
-    public function getTudou(): ?string
-    {
-        return $this->tudou;
-    }
-
-    public function setTudou(?string $tudou): void
-    {
-        $this->tudou = $tudou;
     }
 
     public function getVimeo(): ?string
