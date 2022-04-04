@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>Form layouts</h1>
+
+    {{ form_start(form) }}
+        <details open>
+            <summary>Files & images</summary>
+            {{ form_row(form.file) }}
+            {{ form_row(form.image) }}
+        </details>
+        <details>
+            <summary>Sounds</summary>
+            {{ form_row(form.soundcloud) }}
+        </details>
+        <details>
+            <summary>Videos</summary>
+            {{ form_row(form.youtube) }}
+            {{ form_row(form.tudou) }}
+            {{ form_row(form.vimeo) }}
+            {{ form_row(form.dailymotion) }}
+        </details>
+
+        <p>
+            <button type="submit" class="btn btn-primary">
+                Submit media
+            </button>
+        </p>
+    {{ form_end(form) }}
+{% endblock body %}
+
+{% block footer %}
+    <hr>
+
+    Style:
+    {% set links = { 'Default': 'index', 'Bootstrap 3': 'bootstrap_3', 'Bootstrap 4': 'bootstrap_4', 'Bootstrap 5': 'bootstrap_5' } %}
+    {% for label, link in links %}
+        {% if is_active_path(path("app_form_type_#{link}")) %}<strong>{% endif %}
+        <a href="{{ path("app_form_type_#{link}") }}">{{ label }}</a>
+        {% if is_active_path(path("app_form_type_#{link}")) %}</strong>{% endif %}
+        {% if not loop.last %} - {% endif %}
+    {% endfor %}
+
+    {{ parent() }}
+{% endblock footer %}

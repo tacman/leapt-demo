@@ -4,6 +4,7 @@ tasks:
     fixtures:
         desc: Generate fixtures
         cmds:
+            - rm -f var/data.db
             - symfony console d:d:c --quiet
             - symfony console d:s:u --force --quiet
 
