@@ -12,3 +12,5 @@
 ###> leapt/core-bundle ###
 /public/uploads/
 ###< leapt/core-bundle ###
+
+/.task
