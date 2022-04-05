@@ -27,19 +27,19 @@ final class MediaType extends AbstractType
                 'required' => false,
             ])
             ->add('soundcloud', SoundType::class, [
-                'provider' => 'soundcloud',
+                'provider' => SoundType::PROVIDER_SOUNDCLOUD,
                 'required' => false,
             ])
             ->add('youtube', VideoType::class, [
-                'provider' => 'youtube',
+                'provider' => VideoType::PROVIDER_YOUTUBE,
                 'required' => false,
             ])
             ->add('vimeo', VideoType::class, [
-                'provider' => 'vimeo',
+                'provider' => VideoType::PROVIDER_VIMEO,
                 'required' => false,
             ])
             ->add('dailymotion', VideoType::class, [
-                'provider' => 'dailymotion',
+                'provider' => VideoType::PROVIDER_DAILYMOTION,
                 'required' => false,
             ])
         ;

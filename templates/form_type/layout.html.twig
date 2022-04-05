@@ -4,21 +4,22 @@
     <h1>Form layouts</h1>
 
     {{ form_start(form) }}
-        <details open>
-            <summary>Files & images</summary>
-            {{ form_row(form.file) }}
-            {{ form_row(form.image) }}
-        </details>
-        <details>
-            <summary>Sounds</summary>
-            {{ form_row(form.soundcloud) }}
-        </details>
-        <details>
-            <summary>Videos</summary>
-            {{ form_row(form.youtube) }}
-            {{ form_row(form.vimeo) }}
-            {{ form_row(form.dailymotion) }}
-        </details>
+        <div class="row">
+            <div class="col-8 col-xs-8"><h3>Files & images</h3></div>
+            <div class="col-4 col-xs-4"><h3>Sounds</h3></div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-4">{{ form_row(form.file) }}</div>
+            <div class="col col-xs-4">{{ form_row(form.image) }}</div>
+            <div class="col col-xs-4">{{ form_row(form.soundcloud) }}</div>
+        </div>
+
+        <h3>Videos</h3>
+        <div class="row">
+            <div class="col col-xs-4">{{ form_row(form.youtube) }}</div>
+            <div class="col col-xs-4">{{ form_row(form.vimeo) }}</div>
+            <div class="col col-xs-4">{{ form_row(form.dailymotion) }}</div>
+        </div>
 
         <p>
             <button type="submit" class="btn btn-primary">
