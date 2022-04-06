@@ -40,3 +40,8 @@ services:
                 accessKeyId: "%env(AWS_KEY)%"
                 accessKeySecret: "%env(AWS_SECRET)%"
                 region: "%env(AWS_REGION)%"
+
+    app.sitemap:
+        class: App\Sitemap\Sitemap
+        tags:
+            - { name: leapt_core.sitemap }

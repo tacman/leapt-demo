@@ -1,0 +1,2 @@
+leapt_core_sitemap:
+    resource: '@LeaptCoreBundle/Resources/config/routing_sitemap.yml'

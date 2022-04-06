@@ -7,6 +7,8 @@ Currently configured:
 
 * File uploads
 * Paginator
+* Form types
+* Sitemap
 
 Set up (using [Symfony CLI](https://symfony.com/download) & [Task](https://taskfile.dev/)):
 
@@ -24,4 +26,4 @@ To stop the Symfony server:
 task stop
 ```
 
-Then configure AWS config in your `.env.local` file (based on `.env` file) and head to the URL provided by Symfony CLI.
+Then configure AWS config in your `.env.local` file (based on `.env` file) if you want to test S3 upload and head to the URL provided by Symfony CLI.
