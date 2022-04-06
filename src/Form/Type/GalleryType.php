@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Form\Type;
 
 use App\Entity\Gallery;
-use Leapt\CoreBundle\Form\Type\FileType;
+use Leapt\CoreBundle\Form\Type\ImageType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -17,15 +17,15 @@ final class GalleryType extends AbstractType
     {
         $builder
             ->add('title', TextType::class)
-            ->add('localImageFile', FileType::class, [
+            ->add('localImageFile', ImageType::class, [
                 'file_path' => 'localImage',
                 'required' => false,
             ])
-            ->add('s3ImageFile', FileType::class, [
+            ->add('s3ImageFile', ImageType::class, [
                 'file_path' => 's3Image',
                 'required' => false,
             ])
-            ->add('s3AsyncImageFile', FileType::class, [
+            ->add('s3AsyncImageFile', ImageType::class, [
                 'file_path' => 's3AsyncImage',
                 'required' => false,
             ])
