@@ -51,13 +51,13 @@
                     <a href="{{ path('app_gallery_index') }}">File uploads</a>
                     {% if active_section == 'file_upload' %}</strong>{% endif %}
                     -
-                    {% if active_section == 'paginator' %}<strong>{% endif %}
-                    <a href="{{ path('app_paginator_index') }}">Paginator</a>
-                    {% if active_section == 'paginator' %}</strong>{% endif %}
-                    -
                     {% if active_section == 'form_type' %}<strong>{% endif %}
                     <a href="{{ path('app_form_type_index') }}">Form types</a>
                     {% if active_section == 'form_type' %}</strong>{% endif %}
+                    -
+                    {% if active_section == 'paginator' %}<strong>{% endif %}
+                    <a href="{{ path('app_paginator_index') }}">Paginator</a>
+                    {% if active_section == 'paginator' %}</strong>{% endif %}
                 </footer>
             {% endblock footer %}
         </div>
