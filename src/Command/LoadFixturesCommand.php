@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Command;
 
 use App\Factory\CategoryFactory;
+use App\Factory\MediaFactory;
 use App\Factory\NewsFactory;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -22,6 +23,13 @@ final class LoadFixturesCommand extends Command
         CategoryFactory::createOne(['name' => 'PHP']);
         CategoryFactory::createOne(['name' => 'Random']);
         NewsFactory::createMany(25);
+
+        MediaFactory::createOne([
+            'soundcloud' => '827596237',
+            'dailymotion' => 'x5d53u',
+            'youtube' => 'v5yYMjU8xDg',
+            'vimeo' => '17420386',
+        ]);
 
         return Command::SUCCESS;
     }

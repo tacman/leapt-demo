@@ -27,6 +27,8 @@ rm -f var/data.db
 symfony console d:d:c --quiet
 symfony console d:s:u --force --quiet
 symfony console a:f:l
+# Or, if you use Task:
+task fixtures
 
 # Run Symfony CLI server
 symfony serve -d
