@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>News: {{ news.title }}</h1>
+
+    <p>By: {{ news.authorName }}, published on {{ news.publicationDate|date('d/m/Y H:i') }}</p>
+
+    <p>{{ news.content }}</p>
+{% endblock body %}
