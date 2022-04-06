@@ -30,13 +30,14 @@ final class NewsFactory extends ModelFactory
     protected function getDefaults(): array
     {
         return [
-            'title' => self::faker()->sentence(),
+            'title' => self::faker()->word(),
             'slug' => self::faker()->slug(),
             'content' => self::faker()->text(),
             'publicationDate' => self::faker()->datetime(),
             'authorName' => self::faker()->userName(),
             'authorEmail' => self::faker()->email(),
             'category' => CategoryFactory::random(),
+            'image' => self::faker()->optional(.7)->passthrough('static-files/' . self::faker()->numberBetween(1, 10) . '.jpg'),
         ];
     }
 

@@ -9,6 +9,7 @@ use App\Entity\News;
 use Leapt\CoreBundle\Datalist\Action\Type\SimpleActionType;
 use Leapt\CoreBundle\Datalist\DatalistBuilder;
 use Leapt\CoreBundle\Datalist\Field\Type\DateTimeFieldType;
+use Leapt\CoreBundle\Datalist\Field\Type\ImageFieldType;
 use Leapt\CoreBundle\Datalist\Field\Type\TextFieldType;
 use Leapt\CoreBundle\Datalist\Filter\Type\EntityFilterType;
 use Leapt\CoreBundle\Datalist\Filter\Type\SearchFilterType;
@@ -25,12 +26,19 @@ final class NewsDatalistType extends DatalistType
             ->setDefaults([
                 'limit_per_page' => 10,
                 'data_class'     => News::class,
+                'filters_on_top' => false,
             ])
+            ->setRequired(['is_tiled'])
+            ->setAllowedTypes('is_tiled', ['bool'])
         ;
     }
 
     public function buildDatalist(DatalistBuilder $builder, array $options): void
     {
+        if ($options['is_tiled']) {
+            $builder->addField('image', ImageFieldType::class);
+        }
+
         $builder
             ->addField('title', TextFieldType::class, [
                 'label' => 'Title',

@@ -1,5 +1,6 @@
 {% extends 'layout.html.twig' %}
 {% set active_section = 'datalist' %}
+{% do add_active_path(path(app.request.attributes.get('_route'))) %}
 
 {% block body %}
     <h1>Data list</h1>
@@ -15,13 +16,17 @@
     <hr>
 
     Style:
-    {% set links = { 'Default': 'index', 'Bootstrap 3': 'bootstrap_3', 'Bootstrap 4': 'bootstrap_4', 'Bootstrap 5': 'bootstrap_5' } %}
+    {% set links = { 'Default': 'default', 'Bootstrap 3': 'bootstrap_3', 'Bootstrap 4': 'bootstrap_4', 'Bootstrap 5': 'bootstrap_5' } %}
+    {% set types = ['grid', 'tiled'] %}
     {% for label, link in links %}
-        {% if is_active_path(path("app_datalist_#{link}")) %}<strong>{% endif %}
-        <a href="{{ path("app_datalist_#{link}") }}">{{ label }}</a>
-        {% if is_active_path(path("app_datalist_#{link}")) %}</strong>{% endif %}
+        {% set is_last_link = loop.last %}
+        {{ label }}
+        ({% for type in types %}{% set current_url = path("app_datalist_#{link}_#{type}") %}{% if is_active_path(current_url) %}<strong>{% endif %}<a href="{{ current_url }}">{{ type }}</a>{% if is_active_path(current_url) %}</strong>{% endif %}{{ not loop.last ? ', ' }}{% endfor %})
         {% if not loop.last %} - {% endif %}
     {% endfor %}
+
+    <br>
+    <em>Images come from <a href="https://picsum.photos/" target="_blank">Lorem Picsum</a></em>
 
     {{ parent() }}
 {% endblock footer %}

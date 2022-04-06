@@ -7,6 +7,7 @@ namespace App\Entity;
 use App\Entity\Traits\PrimaryKeyTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity]
@@ -37,6 +38,9 @@ class News
     #[ORM\ManyToOne]
     #[Assert\NotBlank]
     private Category $category;
+
+    #[ORM\Column(type: Types::STRING, nullable: true)]
+    private ?string $image = null;
 
     public function getTitle(): string
     {
@@ -106,5 +110,15 @@ class News
     public function setCategory(Category $category): void
     {
         $this->category = $category;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): void
+    {
+        $this->image = $image;
     }
 }

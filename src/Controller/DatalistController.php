@@ -23,34 +23,66 @@ final class DatalistController extends AbstractController
     ) {
     }
 
-    #[Route('', name: 'index')]
-    public function index(Request $request): Response
+    #[Route('/default-grid', name: 'default_grid')]
+    public function defaultGrid(Request $request): Response
     {
-        return $this->render('datalist/index.html.twig', [
+        return $this->render('datalist/default_grid.html.twig', [
             'datalist' => $this->getDatalist($request),
         ]);
     }
 
-    #[Route('/bootstrap-3', name: 'bootstrap_3')]
-    public function bootstrap3(Request $request): Response
+    #[Route('/default-tiled', name: 'default_tiled')]
+    public function defaultTiled(Request $request): Response
     {
-        return $this->render('datalist/bootstrap_3.html.twig', [
+        return $this->render('datalist/default_tiled.html.twig', [
             'datalist' => $this->getDatalist($request),
         ]);
     }
 
-    #[Route('/bootstrap-4', name: 'bootstrap_4')]
-    public function bootstrap4(Request $request): Response
+    #[Route('/bootstrap-3-grid', name: 'bootstrap_3_grid')]
+    public function bootstrap3Grid(Request $request): Response
     {
-        return $this->render('datalist/bootstrap_4.html.twig', [
+        return $this->render('datalist/bootstrap_3_grid.html.twig', [
             'datalist' => $this->getDatalist($request),
         ]);
     }
 
-    #[Route('/bootstrap-5', name: 'bootstrap_5')]
-    public function bootstrap5(Request $request): Response
+    #[Route('/bootstrap-3-tiled', name: 'bootstrap_3_tiled')]
+    public function bootstrap3Tiled(Request $request): Response
     {
-        return $this->render('datalist/bootstrap_5.html.twig', [
+        return $this->render('datalist/bootstrap_3_tiled.html.twig', [
+            'datalist' => $this->getDatalist($request),
+        ]);
+    }
+
+    #[Route('/bootstrap-4-grid', name: 'bootstrap_4_grid')]
+    public function bootstrap4Grid(Request $request): Response
+    {
+        return $this->render('datalist/bootstrap_4_grid.html.twig', [
+            'datalist' => $this->getDatalist($request),
+        ]);
+    }
+
+    #[Route('/bootstrap-4-tiled', name: 'bootstrap_4_tiled')]
+    public function bootstrap4Tiled(Request $request): Response
+    {
+        return $this->render('datalist/bootstrap_4_tiled.html.twig', [
+            'datalist' => $this->getDatalist($request),
+        ]);
+    }
+
+    #[Route('/bootstrap-5-grid', name: 'bootstrap_5_grid')]
+    public function bootstrap5Grid(Request $request): Response
+    {
+        return $this->render('datalist/bootstrap_5_grid.html.twig', [
+            'datalist' => $this->getDatalist($request),
+        ]);
+    }
+
+    #[Route('/bootstrap-5-tiled', name: 'bootstrap_5_tiled')]
+    public function bootstrap5Tiled(Request $request): Response
+    {
+        return $this->render('datalist/bootstrap_5_tiled.html.twig', [
             'datalist' => $this->getDatalist($request),
         ]);
     }
@@ -60,8 +92,12 @@ final class DatalistController extends AbstractController
         $queryBuilder = $this->newsRepository->createQueryBuilder('n')
             ->orderBy('n.publicationDate', 'DESC');
 
+        $isTiled = str_contains($request->attributes->get('_route'), 'tiled');
         $datalist = $this->datalistFactory
-            ->createBuilder(NewsDatalistType::class)
+            ->createBuilder(NewsDatalistType::class, [
+                'is_tiled' => $isTiled,
+                'limit_per_page' => $isTiled ? 12 : 10,
+            ])
             ->getDatalist();
 
         $datalist->setRoute($request->attributes->get('_route'))
