@@ -1,5 +1,5 @@
 Demo project for leapt/core-bundle
-----------------------------------
+==================================
 
 Simple Symfony project setup to test leapt/core-bundle.
 
@@ -11,20 +11,27 @@ Currently configured:
 * RSS feeds
 * Sitemap
 
-Set up (using [Symfony CLI](https://symfony.com/download) & [Task](https://taskfile.dev/)):
+Set up (using [Symfony CLI](https://symfony.com/download)):
 
 ```bash
+# Clone project
 git clone https://github.com/jmsche/leapt-core-demo.git
 cd leapt-core-demo
-task composer
-task fixtures
-task start
-```
 
-To stop the Symfony server:
+# Install vendors
+symfony composer i
 
-```bash
-task stop
+# Reset database
+rm -f var/data.db
+symfony console d:d:c --quiet
+symfony console d:s:u --force --quiet
+symfony console a:f:l
+
+# Run Symfony CLI server
+symfony serve -d
+
+# To stop Symfony CLI server:
+symfony server:stop
 ```
 
 Then configure AWS config in your `.env.local` file (based on `.env` file) if you want to test S3 upload and head to the URL provided by Symfony CLI.
