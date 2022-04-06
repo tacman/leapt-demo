@@ -8,6 +8,7 @@ Currently configured:
 * File uploads
 * Paginator
 * Form types
+* RSS feeds
 * Sitemap
 
 Set up (using [Symfony CLI](https://symfony.com/download) & [Task](https://taskfile.dev/)):

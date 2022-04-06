@@ -45,3 +45,8 @@ services:
         class: App\Sitemap\Sitemap
         tags:
             - { name: leapt_core.sitemap }
+
+    # Feeds
+    App\Feed\NewsFeed:
+        tags:
+            - { name: leapt_core.feed, alias: news }

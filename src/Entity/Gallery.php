@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Entity\Traits\PrimaryKeyTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Leapt\CoreBundle\Doctrine\Mapping as LeaptCore;
@@ -13,8 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity]
 class Gallery
 {
-    #[ORM\Column, ORM\Id, ORM\GeneratedValue]
-    private int $id;
+    use PrimaryKeyTrait;
 
     #[ORM\Column(type: Types::STRING)]
     #[Assert\NotBlank]
@@ -38,11 +38,6 @@ class Gallery
 
     #[LeaptCore\File(path: 'uploads/s3-async-image', mappedBy: 's3AsyncImage', flysystemConfig: 's3async')]
     private ?UploadedFile $s3AsyncImageFile = null;
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
 
     public function getTitle(): string
     {

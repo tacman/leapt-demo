@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Entity\Traits\PrimaryKeyTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Leapt\CoreBundle\Doctrine\Mapping as LeaptCore;
@@ -13,8 +14,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity]
 class Media
 {
-    #[ORM\Column, ORM\Id, ORM\GeneratedValue]
-    private int $id;
+    use PrimaryKeyTrait;
 
     #[LeaptCore\File(path: 'media/files', mappedBy: 'filePath', flysystemConfig: 'local')]
     private ?UploadedFile $file = null;
@@ -40,11 +40,6 @@ class Media
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $dailymotion = null;
-
-    public function getId(): int
-    {
-        return $this->id;
-    }
 
     public function getFile(): ?UploadedFile
     {
