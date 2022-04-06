@@ -1,7 +1,7 @@
-Demo project for leapt/core-bundle
-==================================
+Demo project for Leapt bundles
+==============================
 
-Simple Symfony project setup to test leapt/core-bundle.
+Simple Symfony project setup to test some Leapt bundles.
 
 Currently configured:
 
@@ -16,8 +16,8 @@ Set up (using [Symfony CLI](https://symfony.com/download)):
 
 ```bash
 # Clone project
-git clone https://github.com/jmsche/leapt-core-demo.git
-cd leapt-core-demo
+git clone https://github.com/leapt/demo.git leapt-demo
+cd leapt-demo
 
 # Install vendors
 symfony composer i
