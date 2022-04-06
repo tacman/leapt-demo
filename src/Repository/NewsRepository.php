@@ -22,4 +22,10 @@ final class NewsRepository extends ServiceEntityRepository
             ->setMaxResults($count)
             ->getQuery()->getResult();
     }
+
+    public function save(News $news): void
+    {
+        $this->getEntityManager()->persist($news);
+        $this->getEntityManager()->flush();
+    }
 }

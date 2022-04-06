@@ -36,6 +36,7 @@ final class NewsFactory extends ModelFactory
             'publicationDate' => self::faker()->datetime(),
             'authorName' => self::faker()->userName(),
             'authorEmail' => self::faker()->email(),
+            'category' => CategoryFactory::random(),
         ];
     }
 

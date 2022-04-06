@@ -20,9 +20,16 @@
             {% block footer %}
                 <hr>
                 <footer>
+                    {% if active_section is not defined %}
+                        {% set active_section = null %}
+                    {% endif %}
                     <a href="{{ path('app_default_index') }}">Homepage</a>
                     -
+                    {% if active_section == 'file_upload' %}<strong>{% endif %}
                     <a href="{{ path('app_gallery_index') }}">File uploads</a>
+                    {% if active_section == 'file_upload' %}</strong>{% endif %}
+                    -
+                    <a href="{{ path('app_datalist_index') }}">Data lists</a>
                     -
                     <a href="{{ path('app_paginator_index') }}">Paginator</a>
                     -

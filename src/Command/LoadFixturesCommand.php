@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Command;
 
+use App\Factory\CategoryFactory;
 use App\Factory\NewsFactory;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -17,6 +18,9 @@ final class LoadFixturesCommand extends Command
 {
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        CategoryFactory::createOne(['name' => 'Symfony']);
+        CategoryFactory::createOne(['name' => 'PHP']);
+        CategoryFactory::createOne(['name' => 'Random']);
         NewsFactory::createMany(25);
 
         return Command::SUCCESS;

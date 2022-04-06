@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "62562b39559609ffd91d7da2bd348f07",
+    "content-hash": "85ee826488677ef465179ccfa9e51633",
     "packages": [
         {
             "name": "async-aws/core",
@@ -185,16 +185,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.218.2",
+            "version": "3.218.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "dd981c2e95fd1dd65d8e05b30e257b8413d63071"
+                "reference": "a1bd2174db1255598344570e88c864cb18ab84f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/dd981c2e95fd1dd65d8e05b30e257b8413d63071",
-                "reference": "dd981c2e95fd1dd65d8e05b30e257b8413d63071",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a1bd2174db1255598344570e88c864cb18ab84f7",
+                "reference": "a1bd2174db1255598344570e88c864cb18ab84f7",
                 "shasum": ""
             },
             "require": {
@@ -270,9 +270,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.218.2"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.218.3"
             },
-            "time": "2022-04-04T18:18:52+00:00"
+            "time": "2022-04-05T18:15:32+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -2441,17 +2441,11 @@
         },
         {
             "name": "leapt/core-bundle",
-            "version": "v4.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/leapt/core-bundle.git",
-                "reference": "f784bc65eb1be902b1cfbf4279c060028a445584"
-            },
+            "version": "dev-datalist-layout",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/leapt/core-bundle/zipball/f784bc65eb1be902b1cfbf4279c060028a445584",
-                "reference": "f784bc65eb1be902b1cfbf4279c060028a445584",
-                "shasum": ""
+                "type": "path",
+                "url": "/home/jmsche/Sites/vendors/leapt/core-bundle",
+                "reference": "ae3812f8b87a6cc7af87e748d8bb1c0a751cd64d"
             },
             "require": {
                 "doctrine/orm": "^2.10",
@@ -2484,7 +2478,27 @@
                     "Leapt\\CoreBundle\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Leapt\\CoreBundle\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "ci": [
+                    "@cs:dry",
+                    "@phpstan",
+                    "vendor/bin/phpunit"
+                ],
+                "cs:dry": [
+                    "php-cs-fixer fix --diff --dry-run --no-interaction --ansi"
+                ],
+                "cs:fix": [
+                    "php-cs-fixer fix --ansi"
+                ],
+                "phpstan": [
+                    "vendor/bin/phpstan analyse --ansi"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -2509,13 +2523,11 @@
             "description": "Symfony LeaptCoreBundle",
             "homepage": "https://github.com/leapt/core-bundle",
             "keywords": [
-                "utility"
+                "Utility"
             ],
-            "support": {
-                "issues": "https://github.com/leapt/core-bundle/issues",
-                "source": "https://github.com/leapt/core-bundle/tree/v4.1.0"
-            },
-            "time": "2022-04-05T14:17:01+00:00"
+            "transport-options": {
+                "relative": false
+            }
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -6913,16 +6925,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.3.9",
+            "version": "v3.3.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "6ff9b0e440fa66f97f207e181c41340ddfa5683d"
+                "reference": "8442df056c51b706793adf80a9fd363406dd3674"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/6ff9b0e440fa66f97f207e181c41340ddfa5683d",
-                "reference": "6ff9b0e440fa66f97f207e181c41340ddfa5683d",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/8442df056c51b706793adf80a9fd363406dd3674",
+                "reference": "8442df056c51b706793adf80a9fd363406dd3674",
                 "shasum": ""
             },
             "require": {
@@ -6973,7 +6985,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.3.9"
+                "source": "https://github.com/twigphp/Twig/tree/v3.3.10"
             },
             "funding": [
                 {
@@ -6985,7 +6997,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-03-25T09:37:52+00:00"
+            "time": "2022-04-06T06:47:41+00:00"
         }
     ],
     "packages-dev": [
@@ -7823,7 +7835,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "leapt/core-bundle": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

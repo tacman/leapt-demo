@@ -7,6 +7,7 @@ namespace App\Entity;
 use App\Entity\Traits\PrimaryKeyTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity]
 class News
@@ -14,12 +15,14 @@ class News
     use PrimaryKeyTrait;
 
     #[ORM\Column(type: Types::STRING)]
+    #[Assert\NotBlank]
     private string $title;
 
     #[ORM\Column(type: Types::STRING, unique: true)]
     private string $slug;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank]
     private string $content;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
@@ -30,6 +33,10 @@ class News
 
     #[ORM\Column(type: Types::STRING)]
     private string $authorEmail;
+
+    #[ORM\ManyToOne]
+    #[Assert\NotBlank]
+    private Category $category;
 
     public function getTitle(): string
     {
@@ -89,5 +96,15 @@ class News
     public function setAuthorEmail(string $authorEmail): void
     {
         $this->authorEmail = $authorEmail;
+    }
+
+    public function getCategory(): Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(Category $category): void
+    {
+        $this->category = $category;
     }
 }

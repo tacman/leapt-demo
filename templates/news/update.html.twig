@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <h1>Update news #{{ news.id }}</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.category) }}
+        {{ form_row(form.content) }}
+
+        <p>
+            <button type="submit">
+                Update news
+            </button>
+        </p>
+    {{ form_end(form) }}
+{% endblock body %}
