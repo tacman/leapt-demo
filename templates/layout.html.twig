@@ -2,15 +2,33 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Leapt bundles demo{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% if bootstrap_version is not defined %}
+            {% set bootstrap_version = null %}
+        {% endif %}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            {% if bootstrap_version == 3 %}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+            {% elseif bootstrap_version == 4 %}
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+            {% elseif bootstrap_version == 5 %}
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+            {% endif %}
         {% endblock %}
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            {% if bootstrap_version == 3 %}
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+            {% elseif bootstrap_version == 4 %}
+                <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+            {% elseif bootstrap_version == 5 %}
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+            {% endif %}
         {% endblock %}
     </head>
     <body>
@@ -25,15 +43,21 @@
                     {% endif %}
                     <a href="{{ path('app_default_index') }}">Homepage</a>
                     -
+                    {% if active_section == 'datalist' %}<strong>{% endif %}
+                    <a href="{{ path('app_datalist_index') }}">Data lists</a>
+                    {% if active_section == 'datalist' %}</strong>{% endif %}
+                    -
                     {% if active_section == 'file_upload' %}<strong>{% endif %}
                     <a href="{{ path('app_gallery_index') }}">File uploads</a>
                     {% if active_section == 'file_upload' %}</strong>{% endif %}
                     -
-                    <a href="{{ path('app_datalist_index') }}">Data lists</a>
-                    -
+                    {% if active_section == 'paginator' %}<strong>{% endif %}
                     <a href="{{ path('app_paginator_index') }}">Paginator</a>
+                    {% if active_section == 'paginator' %}</strong>{% endif %}
                     -
+                    {% if active_section == 'form_type' %}<strong>{% endif %}
                     <a href="{{ path('app_form_type_index') }}">Form types</a>
+                    {% if active_section == 'form_type' %}</strong>{% endif %}
                 </footer>
             {% endblock footer %}
         </div>
