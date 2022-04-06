@@ -5,6 +5,7 @@ Simple Symfony project setup to test leapt/core-bundle.
 
 Currently configured:
 
+* Data lists
 * File uploads
 * Paginator
 * Form types
