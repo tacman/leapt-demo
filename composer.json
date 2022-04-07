@@ -13,7 +13,7 @@
         "league/flysystem-async-aws-s3": "^3.0",
         "league/flysystem-aws-s3-v3": "^3.0",
         "league/flysystem-bundle": "^2.2",
-        "leapt/core-bundle": "dev-datalist-layout",
+        "leapt/core-bundle": "^4.2.0",
         "sensio/framework-extra-bundle": "^6.2",
         "symfony/asset": "6.0.*",
         "symfony/console": "6.0.*",
@@ -85,11 +85,5 @@
             "allow-contrib": false,
             "require": "6.0.*"
         }
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/home/jmsche/Sites/vendors/leapt/core-bundle"
-        }
-    ]
+    }
 }

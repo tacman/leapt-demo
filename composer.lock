@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85ee826488677ef465179ccfa9e51633",
+    "content-hash": "25788e554a0f911786372d84cb3b88dd",
     "packages": [
         {
             "name": "async-aws/core",
@@ -185,16 +185,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.218.3",
+            "version": "3.218.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "a1bd2174db1255598344570e88c864cb18ab84f7"
+                "reference": "db59241a678720d50deb166d7bfe332100898964"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a1bd2174db1255598344570e88c864cb18ab84f7",
-                "reference": "a1bd2174db1255598344570e88c864cb18ab84f7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/db59241a678720d50deb166d7bfe332100898964",
+                "reference": "db59241a678720d50deb166d7bfe332100898964",
                 "shasum": ""
             },
             "require": {
@@ -270,9 +270,9 @@
             "support": {
                 "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
                 "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.218.3"
+                "source": "https://github.com/aws/aws-sdk-php/tree/3.218.4"
             },
-            "time": "2022-04-05T18:15:32+00:00"
+            "time": "2022-04-06T18:16:53+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -760,16 +760,16 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "2.6.1",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "b7002752b555cb61cc9ca8d4c89a5b6e8200f765"
+                "reference": "53cf797feda995299629bed081ffb51776f36e9f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/b7002752b555cb61cc9ca8d4c89a5b6e8200f765",
-                "reference": "b7002752b555cb61cc9ca8d4c89a5b6e8200f765",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/53cf797feda995299629bed081ffb51776f36e9f",
+                "reference": "53cf797feda995299629bed081ffb51776f36e9f",
                 "shasum": ""
             },
             "require": {
@@ -854,7 +854,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/DoctrineBundle/issues",
-                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.6.1"
+                "source": "https://github.com/doctrine/DoctrineBundle/tree/2.6.2"
             },
             "funding": [
                 {
@@ -870,7 +870,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-02T16:17:41+00:00"
+            "time": "2022-04-07T09:18:26+00:00"
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",
@@ -2105,16 +2105,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "3.0.13",
+            "version": "3.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "15dc1ccb2db8daef507c4d3e501565bae42a9f0e"
+                "reference": "46a5450352540e89cb8e7eb20c58b5b4aae481f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/15dc1ccb2db8daef507c4d3e501565bae42a9f0e",
-                "reference": "15dc1ccb2db8daef507c4d3e501565bae42a9f0e",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/46a5450352540e89cb8e7eb20c58b5b4aae481f6",
+                "reference": "46a5450352540e89cb8e7eb20c58b5b4aae481f6",
                 "shasum": ""
             },
             "require": {
@@ -2175,7 +2175,7 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-                "source": "https://github.com/thephpleague/flysystem/tree/3.0.13"
+                "source": "https://github.com/thephpleague/flysystem/tree/3.0.14"
             },
             "funding": [
                 {
@@ -2191,7 +2191,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-02T08:55:13+00:00"
+            "time": "2022-04-06T18:17:37+00:00"
         },
         {
             "name": "league/flysystem-async-aws-s3",
@@ -2441,11 +2441,17 @@
         },
         {
             "name": "leapt/core-bundle",
-            "version": "dev-datalist-layout",
+            "version": "v4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/leapt/core-bundle.git",
+                "reference": "cce0e67138a73bfe269c6d1e5ecd8d8cba04a58e"
+            },
             "dist": {
-                "type": "path",
-                "url": "/home/jmsche/Sites/vendors/leapt/core-bundle",
-                "reference": "ae3812f8b87a6cc7af87e748d8bb1c0a751cd64d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/leapt/core-bundle/zipball/cce0e67138a73bfe269c6d1e5ecd8d8cba04a58e",
+                "reference": "cce0e67138a73bfe269c6d1e5ecd8d8cba04a58e",
+                "shasum": ""
             },
             "require": {
                 "doctrine/orm": "^2.10",
@@ -2478,27 +2484,7 @@
                     "Leapt\\CoreBundle\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Leapt\\CoreBundle\\Tests\\": "tests/"
-                }
-            },
-            "scripts": {
-                "ci": [
-                    "@cs:dry",
-                    "@phpstan",
-                    "vendor/bin/phpunit"
-                ],
-                "cs:dry": [
-                    "php-cs-fixer fix --diff --dry-run --no-interaction --ansi"
-                ],
-                "cs:fix": [
-                    "php-cs-fixer fix --ansi"
-                ],
-                "phpstan": [
-                    "vendor/bin/phpstan analyse --ansi"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2523,11 +2509,13 @@
             "description": "Symfony LeaptCoreBundle",
             "homepage": "https://github.com/leapt/core-bundle",
             "keywords": [
-                "Utility"
+                "utility"
             ],
-            "transport-options": {
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/leapt/core-bundle/issues",
+                "source": "https://github.com/leapt/core-bundle/tree/v4.2.0"
+            },
+            "time": "2022-04-07T14:31:18+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -7835,9 +7823,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "leapt/core-bundle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
