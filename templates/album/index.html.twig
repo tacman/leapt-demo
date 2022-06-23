@@ -1,0 +1,12 @@
+{% extends 'album/layout.html.twig' %}
+
+{% block body %}
+    <a href="{{ path('app_album_create') }}" class="btn btn-primary float-end">Create an album</a>
+    <h1>Albums (file uploads w/ collections)</h1>
+
+    {% if datalist is empty %}
+        <div class="alert alert-info">No albums available.</div>
+    {% else %}
+        {{ datalist_widget(datalist) }}
+    {% endif %}
+{% endblock body %}

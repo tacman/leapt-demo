@@ -48,8 +48,12 @@
                     {% if active_section == 'datalist' %}</strong>{% endif %}
                     -
                     {% if active_section == 'file_upload' %}<strong>{% endif %}
-                    <a href="{{ path('app_gallery_index') }}">File uploads</a>
+                    <a href="{{ path('app_gallery_index') }}">File uploads w/ Flysystem</a>
                     {% if active_section == 'file_upload' %}</strong>{% endif %}
+                    -
+                    {% if active_section == 'file_upload_collection' %}<strong>{% endif %}
+                    <a href="{{ path('app_album_index') }}">File uploads w/ collections</a>
+                    {% if active_section == 'file_upload_collection' %}</strong>{% endif %}
                     -
                     {% if active_section == 'form_type' %}<strong>{% endif %}
                     <a href="{{ path('app_form_type_index') }}">Form types</a>

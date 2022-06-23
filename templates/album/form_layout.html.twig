@@ -1,0 +1,73 @@
+{% block _album_photos_row %}
+    <fieldset class="mb-4">
+        <legend>{{ form.vars.label|trans({}, translation_domain) }}</legend>
+
+        {{ form_widget(form, { 'attr': { 'class': 'row' } }) }}
+        {{ form_errors(form) }}
+    </fieldset>
+{% endblock _album_photos_row %}
+
+{% block _album_photos_widget %}
+    {% apply spaceless %}
+        {% if prototype is defined %}
+            {% set attr = attr|merge({
+                'data-prototype': form_row(prototype),
+                'data-photos': 'container',
+                'data-index': form.vars.value|length,
+            }) %}
+        {% endif %}
+        <div class="control-group">
+            {{ block('form_widget') }}
+            {% if allow_add %}
+                <div class="btn-group mt-3">
+                    <button type="button" class="btn btn-secondary" data-photos="add">
+                        {{ add_label|trans({}, translation_domain) }}
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+
+        <script>
+            const createElementFromHTML = (htmlString) => {
+                let div = document.createElement('div');
+                div.innerHTML = htmlString.trim();
+                return div.firstChild;
+            };
+            const addPhotoToCollection = () => {
+                const collectionHolder = document.querySelector('[data-photos=container]');
+                const item = createElementFromHTML(collectionHolder
+                    .dataset
+                    .prototype
+                    .replace(
+                        /__name__/g,
+                        collectionHolder.dataset.index
+                    ));
+                collectionHolder.appendChild(item);
+                collectionHolder.dataset.index++;
+            };
+            const deletePhotoFromCollection = (event) => {
+                event.preventDefault();
+                const item = event.target.closest('[data-photo=item]');
+                item.remove();
+            };
+            document.querySelector('[data-photos=add]').addEventListener('click', addPhotoToCollection);
+            document.addEventListener('click', function(e) {
+                if (e.target && e.target.dataset.photo === 'remove') {
+                    deletePhotoFromCollection(e);
+                }
+            });
+        </script>
+    {% endapply %}
+{% endblock _album_photos_widget %}
+
+{% block _album_photos_entry_row %}
+    <div class="col col-md-6 mb-2" data-photo="item">
+        <div class="card bg-light">
+            <div class="card-body">
+                <button class="btn-close float-end" type="button" aria-label="Close" data-photo="remove"></button>
+
+                {{ form_row(form.file) }}
+            </div>
+        </div>
+    </div>
+{% endblock _album_photos_entry_row %}
