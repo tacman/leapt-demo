@@ -57,7 +57,7 @@ final class AlbumController extends AbstractController
             return $this->redirectToRoute('app_album_index');
         }
 
-        return $this->renderForm('album/create.html.twig', [
+        return $this->render('album/create.html.twig', [
             'form' => $form,
         ]);
     }
@@ -77,7 +77,7 @@ final class AlbumController extends AbstractController
             return $this->redirectToRoute('app_album_index');
         }
 
-        return $this->renderForm('album/update.html.twig', [
+        return $this->render('album/update.html.twig', [
             'form' => $form,
         ]);
     }

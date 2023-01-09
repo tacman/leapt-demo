@@ -44,7 +44,7 @@ final class GalleryController extends AbstractController
             return $this->redirectToRoute('app_gallery_index');
         }
 
-        return $this->renderForm('gallery/create.html.twig', [
+        return $this->render('gallery/create.html.twig', [
             'form' => $form,
         ]);
     }
@@ -64,7 +64,7 @@ final class GalleryController extends AbstractController
             return $this->redirectToRoute('app_gallery_index');
         }
 
-        return $this->renderForm('gallery/update.html.twig', [
+        return $this->render('gallery/update.html.twig', [
             'form' => $form,
         ]);
     }

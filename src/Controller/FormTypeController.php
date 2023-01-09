@@ -58,7 +58,7 @@ final class FormTypeController extends AbstractController
             return $this->redirectToRoute($route);
         }
 
-        return $this->renderForm('form_type/' . $action . '.html.twig', [
+        return $this->render('form_type/' . $action . '.html.twig', [
             'form' => $form,
         ]);
     }

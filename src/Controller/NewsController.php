@@ -42,7 +42,7 @@ final class NewsController extends AbstractController
             return $this->redirectToRoute('app_datalist_index');
         }
 
-        return $this->renderForm('news/update.html.twig', [
+        return $this->render('news/update.html.twig', [
             'news' => $news,
             'form' => $form,
         ]);
