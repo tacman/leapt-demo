@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace App\Form\Type;
 
 use App\Entity\Category;
+use App\Entity\Enums\Status;
 use App\Entity\News;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EnumType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,6 +25,9 @@ final class NewsType extends AbstractType
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'choice_label' => 'name',
+            ])
+            ->add('status', EnumType::class, [
+                'class' => Status::class,
             ])
         ;
     }

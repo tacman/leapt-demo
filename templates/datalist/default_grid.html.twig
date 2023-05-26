@@ -1,2 +1,21 @@
 {% extends 'datalist/layout.html.twig' %}
 {% do add_active_path(path('app_datalist_default_grid')) %}
+
+{% block body %}
+    {{ parent() }}
+
+    <style>
+        .badge {
+            padding: 2px 4px;
+            border-radius: 4px;
+            margin: 2px 0;
+            display: inline-block;
+        }
+        .bg-success {
+            background-color: #2ECC40;
+        }
+        .bg-warning {
+            background-color: #FFDC00;
+        }
+    </style>
+{% endblock body %}

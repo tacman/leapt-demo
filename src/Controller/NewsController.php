@@ -39,7 +39,7 @@ final class NewsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->newsRepository->save($news);
 
-            return $this->redirectToRoute('app_datalist_index');
+            return $this->redirectToRoute('app_datalist_bootstrap_5_grid');
         }
 
         return $this->render('news/update.html.twig', [

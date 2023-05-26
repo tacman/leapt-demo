@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Entity\Enums\Status;
 use App\Entity\Traits\PrimaryKeyTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -38,6 +39,10 @@ class News
     #[ORM\ManyToOne]
     #[Assert\NotBlank]
     private Category $category;
+
+    #[ORM\Column(type: Types::STRING, enumType: Status::class)]
+    #[Assert\NotBlank]
+    private Status $status;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $image = null;
@@ -110,6 +115,16 @@ class News
     public function setCategory(Category $category): void
     {
         $this->category = $category;
+    }
+
+    public function getStatus(): Status
+    {
+        return $this->status;
+    }
+
+    public function setStatus(Status $status): void
+    {
+        $this->status = $status;
     }
 
     public function getImage(): ?string

@@ -27,7 +27,7 @@ final class DatalistController extends AbstractController
     public function defaultGrid(Request $request): Response
     {
         return $this->render('datalist/default_grid.html.twig', [
-            'datalist' => $this->getDatalist($request),
+            'datalist' => $this->getDatalist($request, 'default'),
         ]);
     }
 
@@ -35,7 +35,7 @@ final class DatalistController extends AbstractController
     public function defaultTiled(Request $request): Response
     {
         return $this->render('datalist/default_tiled.html.twig', [
-            'datalist' => $this->getDatalist($request),
+            'datalist' => $this->getDatalist($request, 'default'),
         ]);
     }
 
@@ -43,7 +43,7 @@ final class DatalistController extends AbstractController
     public function bootstrap3Grid(Request $request): Response
     {
         return $this->render('datalist/bootstrap_3_grid.html.twig', [
-            'datalist' => $this->getDatalist($request),
+            'datalist' => $this->getDatalist($request, 'bootstrap3'),
         ]);
     }
 
@@ -51,7 +51,7 @@ final class DatalistController extends AbstractController
     public function bootstrap3Tiled(Request $request): Response
     {
         return $this->render('datalist/bootstrap_3_tiled.html.twig', [
-            'datalist' => $this->getDatalist($request),
+            'datalist' => $this->getDatalist($request, 'bootstrap3'),
         ]);
     }
 
@@ -59,7 +59,7 @@ final class DatalistController extends AbstractController
     public function bootstrap4Grid(Request $request): Response
     {
         return $this->render('datalist/bootstrap_4_grid.html.twig', [
-            'datalist' => $this->getDatalist($request),
+            'datalist' => $this->getDatalist($request, 'bootstrap4'),
         ]);
     }
 
@@ -67,7 +67,7 @@ final class DatalistController extends AbstractController
     public function bootstrap4Tiled(Request $request): Response
     {
         return $this->render('datalist/bootstrap_4_tiled.html.twig', [
-            'datalist' => $this->getDatalist($request),
+            'datalist' => $this->getDatalist($request, 'bootstrap4'),
         ]);
     }
 
@@ -75,7 +75,7 @@ final class DatalistController extends AbstractController
     public function bootstrap5Grid(Request $request): Response
     {
         return $this->render('datalist/bootstrap_5_grid.html.twig', [
-            'datalist' => $this->getDatalist($request),
+            'datalist' => $this->getDatalist($request, 'bootstrap5'),
         ]);
     }
 
@@ -83,11 +83,11 @@ final class DatalistController extends AbstractController
     public function bootstrap5Tiled(Request $request): Response
     {
         return $this->render('datalist/bootstrap_5_tiled.html.twig', [
-            'datalist' => $this->getDatalist($request),
+            'datalist' => $this->getDatalist($request, 'bootstrap5'),
         ]);
     }
 
-    private function getDatalist(Request $request): Datalist
+    private function getDatalist(Request $request, string $theme): Datalist
     {
         $queryBuilder = $this->newsRepository->createQueryBuilder('n')
             ->orderBy('n.publicationDate', 'DESC');
@@ -97,6 +97,7 @@ final class DatalistController extends AbstractController
             ->createBuilder(NewsDatalistType::class, [
                 'is_tiled' => $isTiled,
                 'limit_per_page' => $isTiled ? 12 : 10,
+                'theme' => $theme,
             ])
             ->getDatalist();
 

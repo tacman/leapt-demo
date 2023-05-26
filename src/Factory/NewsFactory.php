@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Factory;
 
+use App\Entity\Enums\Status;
 use App\Entity\News;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
@@ -38,6 +39,7 @@ final class NewsFactory extends ModelFactory
             'authorEmail' => self::faker()->email(),
             'category' => CategoryFactory::random(),
             'image' => self::faker()->optional(.7)->passthrough('static-files/' . self::faker()->numberBetween(1, 10) . '.jpg'),
+            'status' => self::faker()->randomElement(Status::cases()),
         ];
     }
 

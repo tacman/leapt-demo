@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace App\Datalist\Type;
 
 use App\Entity\Category;
+use App\Entity\Enums\Status;
 use App\Entity\News;
 use Leapt\CoreBundle\Datalist\Action\Type\SimpleActionType;
 use Leapt\CoreBundle\Datalist\DatalistBuilder;
 use Leapt\CoreBundle\Datalist\Field\Type\DateTimeFieldType;
 use Leapt\CoreBundle\Datalist\Field\Type\ImageFieldType;
+use Leapt\CoreBundle\Datalist\Field\Type\LabelFieldType;
 use Leapt\CoreBundle\Datalist\Field\Type\TextFieldType;
 use Leapt\CoreBundle\Datalist\Filter\Type\EntityFilterType;
 use Leapt\CoreBundle\Datalist\Filter\Type\SearchFilterType;
@@ -28,8 +30,9 @@ final class NewsDatalistType extends DatalistType
                 'data_class'     => News::class,
                 'filters_on_top' => false,
             ])
-            ->setRequired(['is_tiled'])
+            ->setRequired(['is_tiled', 'theme'])
             ->setAllowedTypes('is_tiled', ['bool'])
+            ->setAllowedValues('theme', ['default', 'bootstrap3', 'bootstrap4', 'bootstrap5'])
         ;
     }
 
@@ -39,7 +42,24 @@ final class NewsDatalistType extends DatalistType
             $builder->addField('image', ImageFieldType::class);
         }
 
+        $statusClasses = match ($options['theme']) {
+            'default', 'bootstrap4', 'bootstrap5' => 'badge bg',
+            'bootstrap3' => 'label label',
+        };
+
         $builder
+            ->addField('status', LabelFieldType::class, [
+                'mappings' => [
+                    Status::Pending->value => [
+                        'label' => 'Pending',
+                        'attr' => ['class' => $statusClasses . '-warning'],
+                    ],
+                    Status::Validated->value => [
+                        'label' => 'Validated',
+                        'attr' => ['class' => $statusClasses . '-success'],
+                    ],
+                ],
+            ])
             ->addField('title', TextFieldType::class, [
                 'label' => 'Title',
             ])
