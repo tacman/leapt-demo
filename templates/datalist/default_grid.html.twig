@@ -5,17 +5,20 @@
     {{ parent() }}
 
     <style>
-        .badge {
+        .badge, .label {
             padding: 2px 4px;
             border-radius: 4px;
             margin: 2px 0;
             display: inline-block;
         }
-        .bg-success {
+        .bg-success, .label-success {
             background-color: #2ECC40;
         }
         .bg-warning {
             background-color: #FFDC00;
+        }
+        .label-danger {
+            background-color: #FF4136;
         }
     </style>
 {% endblock body %}

@@ -9,6 +9,7 @@ use App\Entity\Enums\Status;
 use App\Entity\News;
 use Leapt\CoreBundle\Datalist\Action\Type\SimpleActionType;
 use Leapt\CoreBundle\Datalist\DatalistBuilder;
+use Leapt\CoreBundle\Datalist\Field\Type\BooleanFieldType;
 use Leapt\CoreBundle\Datalist\Field\Type\DateTimeFieldType;
 use Leapt\CoreBundle\Datalist\Field\Type\ImageFieldType;
 use Leapt\CoreBundle\Datalist\Field\Type\LabelFieldType;
@@ -48,6 +49,7 @@ final class NewsDatalistType extends DatalistType
         };
 
         $builder
+            ->addField('active', BooleanFieldType::class)
             ->addField('status', LabelFieldType::class, [
                 'mappings' => [
                     Status::Pending->value => [

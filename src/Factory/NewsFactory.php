@@ -40,6 +40,7 @@ final class NewsFactory extends ModelFactory
             'category' => CategoryFactory::random(),
             'image' => self::faker()->optional(.7)->passthrough('static-files/' . self::faker()->numberBetween(1, 10) . '.jpg'),
             'status' => self::faker()->randomElement(Status::cases()),
+            'active' => self::faker()->boolean(),
         ];
     }
 

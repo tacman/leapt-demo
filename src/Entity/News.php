@@ -8,7 +8,6 @@ use App\Entity\Enums\Status;
 use App\Entity\Traits\PrimaryKeyTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity]
@@ -43,6 +42,9 @@ class News
     #[ORM\Column(type: Types::STRING, enumType: Status::class)]
     #[Assert\NotBlank]
     private Status $status;
+
+    #[ORM\Column(type: Types::BOOLEAN)]
+    private bool $active;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $image = null;
@@ -125,6 +127,16 @@ class News
     public function setStatus(Status $status): void
     {
         $this->status = $status;
+    }
+
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): void
+    {
+        $this->active = $active;
     }
 
     public function getImage(): ?string

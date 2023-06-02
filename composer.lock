@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79fb70aea32befb5ae0f5f52d2b9c8a6",
+    "content-hash": "bdee395d639766a8e38169b6d2b836ee",
     "packages": [
         {
             "name": "async-aws/core",
@@ -2459,16 +2459,16 @@
         },
         {
             "name": "leapt/core-bundle",
-            "version": "v4.9.1",
+            "version": "v4.9.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/leapt/core-bundle.git",
-                "reference": "24d2b8010d9793acca3a2463a01cc0f4489f529b"
+                "reference": "c10bc6f8c5d6a529e76883e979e9f1f9b5fcc258"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/leapt/core-bundle/zipball/24d2b8010d9793acca3a2463a01cc0f4489f529b",
-                "reference": "24d2b8010d9793acca3a2463a01cc0f4489f529b",
+                "url": "https://api.github.com/repos/leapt/core-bundle/zipball/c10bc6f8c5d6a529e76883e979e9f1f9b5fcc258",
+                "reference": "c10bc6f8c5d6a529e76883e979e9f1f9b5fcc258",
                 "shasum": ""
             },
             "require": {
@@ -2536,9 +2536,9 @@
             ],
             "support": {
                 "issues": "https://github.com/leapt/core-bundle/issues",
-                "source": "https://github.com/leapt/core-bundle/tree/v4.9.1"
+                "source": "https://github.com/leapt/core-bundle/tree/v4.9.3"
             },
-            "time": "2023-05-26T09:54:48+00:00"
+            "time": "2023-06-02T14:23:44+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
