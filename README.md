@@ -3,7 +3,7 @@ Demo project for Leapt bundles
 
 Simple Symfony project setup to test some Leapt bundles.
 
-Requires PHP 8.1+ as it runs Symfony 6.1.
+Requires PHP 8.1+ as it runs Symfony 6.4.
 
 Currently configured:
 
