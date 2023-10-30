@@ -92,6 +92,9 @@
     "guzzlehttp/psr7": {
         "version": "2.2.1"
     },
+    "knplabs/knp-menu-bundle": {
+        "version": "v3.2.0"
+    },
     "laminas/laminas-code": {
         "version": "4.5.1"
     },
@@ -165,8 +168,29 @@
     "ralouphie/getallheaders": {
         "version": "3.0.3"
     },
+    "survos/bootstrap-bundle": {
+        "version": "1.5.69"
+    },
+    "survos/core-bundle": {
+        "version": "1.5.69"
+    },
     "symfony/asset": {
         "version": "v6.0.3"
+    },
+    "symfony/asset-mapper": {
+        "version": "6.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "main",
+            "version": "6.4",
+            "ref": "040e08b268490e84a8e05652d6e9d3d49576f1c6"
+        },
+        "files": [
+            "assets/app.js",
+            "assets/styles/app.css",
+            "config/packages/asset_mapper.yaml",
+            "importmap.php"
+        ]
     },
     "symfony/cache": {
         "version": "v6.0.6"
@@ -384,6 +408,9 @@
             "config/packages/twig.yaml",
             "templates/base.html.twig"
         ]
+    },
+    "symfony/ux-twig-component": {
+        "version": "v2.12.0"
     },
     "symfony/validator": {
         "version": "6.0",

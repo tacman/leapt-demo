@@ -15,3 +15,8 @@
 
 /.task
 /public/media
+
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor
+###< symfony/asset-mapper ###
