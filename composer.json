@@ -29,6 +29,7 @@
         "twig/twig": "^3.6.0"
     },
     "require-dev": {
+        "survos/maker-bundle": "^1.5",
         "symfony/debug-bundle": "^6.3 | ^7.0",
         "symfony/maker-bundle": "^1.48.0",
         "symfony/monolog-bundle": "^3.8.0",
